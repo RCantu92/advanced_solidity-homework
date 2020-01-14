@@ -6,6 +6,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/crowdsale/validation/CappedCrowdsale.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/crowdsale/validation/TimedCrowdsale.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/crowdsale/distribution/RefundablePostDeliveryCrowdsale.sol";
+//import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/crowdsale/distribution/RefundableCrowdsale.sol";
 
 // @TODO: Inherit the crowdsale contracts
 contract PupperCoinSale is Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCrowdsale, RefundablePostDeliveryCrowdsale {
@@ -17,23 +18,24 @@ contract PupperCoinSale is Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCro
         PupperCoin token
         )
         // @TODO: Pass the constructor parameters to the crowdsale contracts.
+        
         Crowdsale(
             rate,
             wallet,
             token
             )
-            
+        
         CappedCrowdsale(
-            305 ether
+            3 ether
             )
             
         TimedCrowdsale(
             now,
-            now + 24 weeks
+            now + 1 minutes
             )
             
         RefundableCrowdsale(
-            300 ether
+            3 ether
             )
         
         public
