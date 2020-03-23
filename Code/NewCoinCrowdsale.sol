@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-import "./PupperCoin.sol";
+import "./NewCoin.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/crowdsale/Crowdsale.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/crowdsale/emission/MintedCrowdsale.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/crowdsale/validation/CappedCrowdsale.sol";
@@ -9,27 +9,27 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 //import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/crowdsale/distribution/RefundableCrowdsale.sol";
 
 /**
- * @title Pupper Coin Sale
+ * @title New Coin Sale
  * This contract creates a crowdsale for the tokens from the imported
- * PupperCoin contract. It inherits five contracts from
+ * NewCoin contract. It inherits five contracts from
  * the OpenZeppelin library.
  */
-contract PupperCoinSale is Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCrowdsale, RefundablePostDeliveryCrowdsale {
+contract NewCoinSale is Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCrowdsale, RefundablePostDeliveryCrowdsale {
 
     /**
     * @dev The parameters are accepted and passed to the
     * imported OpenZeppelin function to create the crowdsale.
-    * @param rate An integer that is the rate of PupperCoin
+    * @param rate An integer that is the rate of NewCoin
     * to Ether.
     * @param wallet The main wallet that will have the newly
-    * minted PupperCoin.
+    * minted NewCoin.
     * @param token The token being used, in this case,
-    * PupperCoin.
+    * NewCoin.
     */
     constructor(
         uint rate,
         address payable wallet,
-        PupperCoin token
+        NewCoin token
         )
         
         /**
@@ -77,26 +77,26 @@ contract PupperCoinSale is Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCro
 }
 
 /**
- * @title Pupper Coin Sale Deployer
- * This contract serves to deploy both the PupperCoin
- * and PupperCoinCrowdsale contracts under a single
+ * @title New Coin Sale Deployer
+ * This contract serves to deploy both the NewCoin
+ * and NewCoinCrowdsale contracts under a single
  * transaction.
  */
-contract PupperCoinSaleDeployer {
+contract NewCoinSaleDeployer {
 
     address public tokenSaleAddress;
     address public tokenAddress;
 
     /**
     * @dev The parameters are accepted and passed to the
-    * PupperCoin and PupperCoinCrowdsale contracts.
+    * NewCoin and NewCoinSale contracts.
     * @param name a string saved to memory that is
     * the name of the token.
     * @param symbol a string saved to memory that is
     * the symbol (similar to a traditional stock ticker)
     * of the token.
     * @param wallet The main wallet that will have the newly
-    * minted PupperCoin.
+    * minted NewCoin.
     */
     constructor(
         string memory name,
@@ -105,20 +105,20 @@ contract PupperCoinSaleDeployer {
     )
         public
     {
-        // Creating the PupperCoin and saving it's address
+        // Creating the NewCoin and saving it's address
         // to the previously declared tokenAddress variable.
-        PupperCoin token = new PupperCoin(name, symbol);
+        NewCoin token = new NewCoin(name, symbol);
         tokenAddress = address(token);
         
-        // Creating the PupperCoinSale and passing it
+        // Creating the NewCoinSale and passing it
         // the rate, wallet, and token parameters. Then
         // saving its address to the previously declared
         // tokenSaleAddress variable.
-        PupperCoinSale tokenSale = new PupperCoinSale(1, wallet, token);
+        NewCoinSale tokenSale = new NewCoinSale(1, wallet, token);
         tokenSaleAddress = address(tokenSale);
 
-        // Making the PupperCoinSale contract a minter,
-        // then have the PupperCoinSaleDeployer renounce its minter role.
+        // Making the NewCoinSale contract a minter,
+        // then have the NewCoinSaleDeployer renounce its minter role.
         token.addMinter(tokenSaleAddress);
         token.renounceMinter();
     }

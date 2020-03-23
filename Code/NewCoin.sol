@@ -5,12 +5,12 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20Mintable.sol";
 
 /**
- * @title Pupper Coin
+ * @title New Coin
  * This contract will create a standard ERC20Mintable token
  * to be used in a crowdsale. It inherits three contracts from
  * the OpenZeppelin library.
  */
-contract PupperCoin is ERC20, ERC20Detailed, ERC20Mintable {
+contract NewCoin is ERC20, ERC20Detailed, ERC20Mintable {
 
     /**
     * @dev The parameters are accepted and passed to the
