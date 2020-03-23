@@ -9,82 +9,45 @@ To function, it inherits Crowdsale, CappedCrowdsale, TimedCrowdsale, RefundableC
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
 ## Running the tests
 
-Explain how to run the automated tests for this system
+In your web browser, go to [Remix](https://remix.ethereum.org/#optimize=false&evmVersion=null&version=soljson-v0.6.1+commit.e6f7d5a4.js), and create a new file with the same name as your chosen file in the Code/ directory.
 
-### Break down into end to end tests
+The following is a list of the three files with an in-depth explanation of their respective roles:
 
-Explain what these tests test and why
+* ### New Coin: 
+    * This contract will create a standard ERC20Mintable token to be used in a crowdsale. It inherits three contracts from the OpenZeppelin library.
+
+* ### New Coin Crowdsale
+    * This contract creates a crowdsale for the tokens from the imported New Coin contract. It inherits five contracts from the OpenZeppelin library.
+
+### Deploying each contract
+
+After navigating to Remix, copy and paste the code into the editor. Once pasted, compile the code under the second tab on the left. To make sure you are using the correct version of Solidity, select 
 
 ```
-Give an example
+0.5.0+commit.1d4f565a
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
+Under the compiler option. Next click the
 
 ```
-Give an example
+Compile {fileName}.sol
 ```
+button to get the file ready to deploy.
 
-## Deployment
+To deploy, navigate to the third tab from the left, and click the
 
-Add additional notes about how to deploy this on a live system
+```
+deploy
+```
+button. Depending on which file you decided to deploy, you will need to provide different data under the deploy drop down arrow. Once you have provided the correct info, you are now ready to start testing out the contract for yourself!
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [Solidity, v.0.5.0](https://solidity.readthedocs.io/en/v0.5.0/) - The programming language used.
+* [Remix](https://remix.ethereum.org/#optimize=false&evmVersion=null&version=soljson-v0.6.1+commit.e6f7d5a4.js) - Online IDE used.
+* [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts)
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* **Roberto Cantu**  - [GitHub](https://github.com/RCantu92)
